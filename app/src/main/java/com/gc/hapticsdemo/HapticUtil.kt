@@ -9,6 +9,47 @@ import android.view.HapticFeedbackConstants
 import android.view.View
 import android.view.accessibility.AccessibilityManager
 import androidx.activity.ComponentActivity
+import androidx.compose.ui.hapticfeedback.HapticFeedbackType
+
+val legacyHapticConstants = listOf(
+    Pair(HapticFeedbackConstants.CLOCK_TICK, "CLOCK_TICK"),
+    Pair(HapticFeedbackConstants.KEYBOARD_TAP, "KEYBOARD_TAP"),
+    Pair(HapticFeedbackConstants.LONG_PRESS, "LONG_PRESS"),
+    Pair(HapticFeedbackConstants.VIRTUAL_KEY, "VIRTUAL_KEY"),
+    // Requires API 27
+    // Pair(HapticFeedbackConstants.KEYBOARD_PRESS,"KEYBOARD_PRESS"),
+    // Pair(HapticFeedbackConstants.KEYBOARD_RELEASE,"KEYBOARD_RELEASE"),
+    // Pair(HapticFeedbackConstants.TEXT_HANDLE_MOVE,"TEXT_HANDLE_MOVE"),
+    // Pair(HapticFeedbackConstants.VIRTUAL_KEY_RELEASE,"VIRTUAL_KEY_RELEASE"),
+    // Requires API 30
+    // Pair(HapticFeedbackConstants.CONFIRM,"CONFIRM"),
+    // Pair(HapticFeedbackConstants.GESTURE_START,"GESTURE_START"),
+    // Pair(HapticFeedbackConstants.GESTURE_END,"GESTURE_END"),
+    // Pair(HapticFeedbackConstants.REJECT,"REJECT"),
+)
+
+val composeHapticTypes = listOf(
+    Pair(HapticFeedbackType.LongPress, "LongPress"),
+    Pair(HapticFeedbackType.TextHandleMove, "TextHandleMove"),
+)
+
+val defaultVibratorEffect = listOf(
+    Pair(VibrationEffect.DEFAULT_AMPLITUDE, "DEFAULT_AMPLITUDE"),
+    // Requires API 29
+    // Pair(VibrationEffect.EFFECT_CLICK, "EFFECT_CLICK"),
+    // Pair(VibrationEffect.EFFECT_DOUBLE_CLICK, "EFFECT_DOUBLE_CLICK"),
+    // Pair(VibrationEffect.EFFECT_HEAVY_CLICK,"EFFECT_HEAVY_CLICK"),
+    // Pair(VibrationEffect.EFFECT_TICK,"EFFECT_TICK"),
+)
+
+val customEffects = listOf(
+    Pair(VibrationEffect.createOneShot(1000, 126), "50% One Shot"),
+    Pair(VibrationEffect.createOneShot(1000, 255), "100% One Shot"),
+    Pair(VibrationEffect.createWaveform(longArrayOf(250L, 250L, 250L), intArrayOf(126, 255, 63), -1), "50%, 100%, 25%"),
+    Pair(VibrationEffect.createWaveform(longArrayOf(75L, 75L, 75L), intArrayOf(126, 0, 255), -1), "iOS Success"),
+    Pair(VibrationEffect.createWaveform(longArrayOf(75L, 100L, 75L), intArrayOf(255, 0, 126), -1), "iOS Warning"),
+    Pair(VibrationEffect.createWaveform(longArrayOf(75L, 50L, 75L, 50L, 75L, 50L, 100L), intArrayOf(126, 0, 126, 0, 255, 0, 100), -1), "iOS Error"),
+)
 
 fun View.vibrate(feedbackConstant: Int) {
     if (context.isTouchExplorationEnabled()) {

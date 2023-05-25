@@ -26,7 +26,6 @@ import com.gc.hapticsdemo.hapticConstantsAPI30
 import com.gc.hapticsdemo.legacyHapticConstants
 import com.gc.hapticsdemo.vibrate
 
-
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreview() {
@@ -36,7 +35,6 @@ fun DefaultPreview() {
 @Composable
 fun MainUI(systemVibrator: Vibrator? = null) {
     Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colors.background) {
-
 
         LazyColumn {
             // Haptics
@@ -57,7 +55,6 @@ fun MainUI(systemVibrator: Vibrator? = null) {
             }
             buttonListItems(hapticConstantsAPI30)
 
-
             // Vibrations
             item {
                 Spacer(modifier = Modifier.height(30.dp))
@@ -69,7 +66,6 @@ fun MainUI(systemVibrator: Vibrator? = null) {
                 Text(text = "Vibrations: Min API 29")
             }
             buttonListItems(vibratorEffectAPI29)
-
 
             // Custom Vibrations
             item {
@@ -87,7 +83,6 @@ fun MainUI(systemVibrator: Vibrator? = null) {
                     Text(text = it.second)
                 }
             }
-
 
             // Vibrations Composer
             val statePairs = arrayOf(
@@ -117,7 +112,8 @@ fun MainUI(systemVibrator: Vibrator? = null) {
                                 -1
                             )
                             it.vibrate(vibe, a)
-                        } catch (e: Throwable) {}
+                        } catch (e: Throwable) {
+                        }
                     }
                 }
             }

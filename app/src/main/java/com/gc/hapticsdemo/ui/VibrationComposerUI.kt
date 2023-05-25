@@ -30,7 +30,7 @@ fun VibrationComposerUI(statePairs: Array<Pair<TextFieldState, TextFieldState>>,
     Column {
         Row {
             val view = LocalView.current
-            Button(onClick = { play(view) } ) {
+            Button(onClick = { play(view) }) {
                 Text(text = "Play")
             }
         }
@@ -40,25 +40,22 @@ fun VibrationComposerUI(statePairs: Array<Pair<TextFieldState, TextFieldState>>,
     }
 }
 
-
-
-private fun isValidInt255(text : String): Boolean {
+private fun isValidInt255(text: String): Boolean {
     if (text == "") return true
     return try {
         val tmp = text.toInt()
         tmp in 0..255
-
-    } catch (e : Throwable) {
+    } catch (e: Throwable) {
         false
     }
 }
 
-private fun isValidLong(text : String): Boolean {
+private fun isValidLong(text: String): Boolean {
     if (text == "") return true
     return try {
         val tmp = text.toLong()
         tmp > -1L
-    } catch (e : Throwable) {
+    } catch (e: Throwable) {
         false
     }
 }
@@ -66,7 +63,7 @@ private fun isValidLong(text : String): Boolean {
 @Composable
 fun ComposerRow(
     index: Int,
-    textState : TextFieldState = remember { TextFieldState() },
+    textState: TextFieldState = remember { TextFieldState() },
     timeState: TextFieldState = remember { TextFieldState() }
 ) {
 
@@ -80,7 +77,7 @@ fun ComposerRow(
             },
             keyboardOptions = KeyboardOptions.Default.copy(keyboardType = KeyboardType.Number),
             isError = !isValidInt255(textState.text),
-            label = { Text(text = "Amplitude (0-255)")},
+            label = { Text(text = "Amplitude (0-255)") },
             placeholder = { Text(text = "250") },
             maxLines = 1
         )
@@ -92,7 +89,7 @@ fun ComposerRow(
             },
             keyboardOptions = KeyboardOptions.Default.copy(keyboardType = KeyboardType.Number),
             isError = !isValidLong(textState.text),
-            label = { Text(text = "Time (ms)")},
+            label = { Text(text = "Time (ms)") },
             placeholder = { Text(text = "100") },
             maxLines = 1
         )

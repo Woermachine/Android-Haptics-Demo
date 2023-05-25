@@ -1,4 +1,4 @@
-package com.gc.hapticsdemo
+package com.gc.hapticsdemo.ui
 
 import android.view.View
 import androidx.compose.foundation.layout.Column
@@ -46,7 +46,7 @@ private fun isValidInt255(text : String): Boolean {
     if (text == "") return true
     return try {
         val tmp = text.toInt()
-        tmp in 1..255
+        tmp in 0..255
 
     } catch (e : Throwable) {
         false

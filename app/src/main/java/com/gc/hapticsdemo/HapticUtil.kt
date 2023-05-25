@@ -28,6 +28,22 @@ val legacyHapticConstants = listOf(
     // Pair(HapticFeedbackConstants.REJECT,"REJECT"),
 )
 
+val hapticConstantsAPI27 = listOf(
+    // Requires API 27
+    Pair(HapticFeedbackConstants.KEYBOARD_PRESS,"KEYBOARD_PRESS"),
+    Pair(HapticFeedbackConstants.KEYBOARD_RELEASE,"KEYBOARD_RELEASE"),
+    Pair(HapticFeedbackConstants.TEXT_HANDLE_MOVE,"TEXT_HANDLE_MOVE"),
+    Pair(HapticFeedbackConstants.VIRTUAL_KEY_RELEASE,"VIRTUAL_KEY_RELEASE"),
+)
+
+val hapticConstantsAPI30 = listOf(
+    // Requires API 30
+    Pair(HapticFeedbackConstants.CONFIRM,"CONFIRM"),
+    Pair(HapticFeedbackConstants.GESTURE_START,"GESTURE_START"),
+    Pair(HapticFeedbackConstants.GESTURE_END,"GESTURE_END"),
+    Pair(HapticFeedbackConstants.REJECT,"REJECT"),
+)
+
 val composeHapticTypes = listOf(
     Pair(HapticFeedbackType.LongPress, "LongPress"),
     Pair(HapticFeedbackType.TextHandleMove, "TextHandleMove"),
@@ -40,6 +56,15 @@ val defaultVibratorEffect = listOf(
     // Pair(VibrationEffect.EFFECT_DOUBLE_CLICK, "EFFECT_DOUBLE_CLICK"),
     // Pair(VibrationEffect.EFFECT_HEAVY_CLICK,"EFFECT_HEAVY_CLICK"),
     // Pair(VibrationEffect.EFFECT_TICK,"EFFECT_TICK"),
+)
+
+
+val vibratorEffectAPI29 = listOf(
+    // Requires API 29
+    Pair(VibrationEffect.EFFECT_CLICK, "EFFECT_CLICK"),
+    Pair(VibrationEffect.EFFECT_DOUBLE_CLICK, "EFFECT_DOUBLE_CLICK"),
+    Pair(VibrationEffect.EFFECT_HEAVY_CLICK,"EFFECT_HEAVY_CLICK"),
+    Pair(VibrationEffect.EFFECT_TICK,"EFFECT_TICK"),
 )
 
 val customEffects = listOf(

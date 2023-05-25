@@ -14,6 +14,7 @@ import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.hapticfeedback.HapticFeedbackType
 import androidx.compose.ui.platform.LocalHapticFeedback
 import androidx.compose.ui.platform.LocalView
 import androidx.compose.ui.tooling.preview.Preview
@@ -54,6 +55,27 @@ fun MainUI(systemVibrator: Vibrator? = null) {
                 Text(text = "Haptics: Min API 30")
             }
             buttonListItems(hapticConstantsAPI30)
+
+            item {
+                Text(text = "Compose Haptics")
+            }
+            item {
+                val haptic = LocalHapticFeedback.current
+                Button(onClick = {
+                    haptic.performHapticFeedback(HapticFeedbackType.LongPress)
+                }) {
+                    Text(text = "LongPress")
+                }
+            }
+            item {
+                val haptic = LocalHapticFeedback.current
+                Button(onClick = {
+                    haptic.performHapticFeedback(HapticFeedbackType.TextHandleMove)
+                }) {
+                    Text(text = "TextHandleMove")
+                }
+            }
+
 
             // Vibrations
             item {
